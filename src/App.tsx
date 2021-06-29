@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {IEpisodeProps} from "./model/Episode";
 
 function App() {
-  const [episodesArray, setEpisodesArray] = React.useState([]);
+  const [episodesArray, setEpisodesArray] = React.useState<IEpisodeProps[]>([]);
 
   useEffect( () => {
       fetch("http://localhost:8000/episodes")
@@ -16,7 +17,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
           {episodesArray.map((episode) => (
-              <p>{episode}</p>
+              <p>{episode.title}</p>
           )
           )}
       </header>
