@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {IEpisodeProps} from "./model/Episode";
+import {IEpisodeProps} from "../model/Episode";
 
 function App() {
   const [episodesArray, setEpisodesArray] = React.useState<IEpisodeProps[]>([]);
