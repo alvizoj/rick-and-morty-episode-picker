@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IEpisode } from '../model/IEpisode';
-import { DEV_URL, PORT } from '../constants/development';
-import { EPISODES_API } from '../constants/ApiPaths';
 import EpisodeEntry from './EpisodeEntry';
 import episodesService from '../services/episodesService';
 
-function HomeScreen() {
+function HomeScreen(): JSX.Element {
     const { loading, error, episodes } = episodesService.useEpisodes();
 
     return (
