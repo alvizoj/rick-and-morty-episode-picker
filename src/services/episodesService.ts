@@ -19,14 +19,11 @@ interface IEpisodesHook {
 class EpisodeService {
     private episodesSubscription = new Subscription<IEpisodesHook>();
     constructor() {
-        setTimeout(() => this.fetchEpisodes(), 0);
-        setTimeout(() => {
-            this.episodesSubscription.update({ loading: false, error: true, episodes: null });
-        }, 5000);
+        this.fetchEpisodes();
     }
     private fetchEpisodes() {
         console.log('FETCHING EPISODES!!!!!!!');
-        fetch('http://localhost:8000/api/v1/episodes')
+        fetch('http://localhost:8000/episodes')
             .then(response => response.json())
             .then(data => {
                 this.episodesSubscription.update({ loading: false, error: false, episodes: data });
