@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { EPISODES_API } from '../constants/ApiPaths';
+import { DEV_URL, PORT } from '../constants/development';
 import Subscription from './Subscription';
 
 interface IEpisode {
@@ -18,19 +20,22 @@ interface IEpisodesHook {
 
 class EpisodeService {
     private episodesSubscription = new Subscription<IEpisodesHook>();
+
     constructor() {
         this.fetchEpisodes();
     }
-    private fetchEpisodes() {
-        console.log('FETCHING EPISODES!!!!!!!');
-        fetch('http://localhost:8000/episodes')
-            .then(response => response.json())
-            .then(data => {
-                this.episodesSubscription.update({ loading: false, error: false, episodes: data });
-            })
-            .catch(() => {
-                this.episodesSubscription.update({ loading: false, error: true, episodes: null });
-            });
+
+    private async fetchEpisodes() {
+        console.log('Fetching Episodes data');
+        console.log('URL: ' + DEV_URL + PORT + EPISODES_API);
+
+        try {
+            const response = await fetch(DEV_URL + PORT + EPISODES_API);
+            const data = await response.json();
+            this.episodesSubscription.update({ loading: false, error: false, episodes: data });
+        } catch (error) {
+            this.episodesSubscription.update({ loading: false, error: true, episodes: null });
+        }
     }
 
     public useEpisodes(): IEpisodesHook {
