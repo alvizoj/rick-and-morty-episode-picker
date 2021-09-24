@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import HomeScreen from './HomeScreen';
 import { HOME } from '../constants/RouterPaths';
 
-function App() {
+function App(): JSX.Element {
     return (
         <div className='Site'>
             <BrowserRouter>
