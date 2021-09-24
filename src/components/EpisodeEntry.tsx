@@ -9,7 +9,7 @@ interface IEpisodeProps {
     episodeNumber: number;
 }
 
-export default function EpisodeEntry(props: IEpisodeProps) {
+export default function EpisodeEntry(props: IEpisodeProps): JSX.Element {
     return (
         <div>
             <h4>{props.title}</h4>
