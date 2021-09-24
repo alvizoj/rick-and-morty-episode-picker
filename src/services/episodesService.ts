@@ -31,9 +31,14 @@ class EpisodeService {
 
         try {
             const response = await fetch(DEV_URL + PORT + EPISODES_API);
+            if (!response.ok) {
+                throw new Error(`Server responded with an error code: ${response.status}`);
+            }
+
             const data = await response.json();
             this.episodesSubscription.update({ loading: false, error: false, episodes: data });
         } catch (error) {
+            console.error('Error while fetching episodes.', error);
             this.episodesSubscription.update({ loading: false, error: true, episodes: null });
         }
     }
