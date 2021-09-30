@@ -27,16 +27,19 @@ class EpisodeService {
 
     private async fetchEpisodes() {
         console.log('Fetching Episodes data');
-        console.log('URL: ' + DEV_URL + PORT + EPISODES_API);
+
+        const fullURL: string = DEV_URL + PORT + EPISODES_API;
+        console.log('URL: ' + fullURL);
 
         try {
-            const response = await fetch(DEV_URL + PORT + EPISODES_API);
+            const response = await fetch(fullURL);
             if (!response.ok) {
                 throw new Error(`Server responded with an error code: ${response.status}`);
             }
 
             const data = await response.json();
             this.episodesSubscription.update({ loading: false, error: false, episodes: data });
+            console.log('Fetched Episodes');
         } catch (error) {
             console.error('Error while fetching episodes.', error);
             this.episodesSubscription.update({ loading: false, error: true, episodes: null });
