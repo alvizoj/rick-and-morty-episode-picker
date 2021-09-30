@@ -6,9 +6,9 @@ import { HOME } from '../constants/RouterPaths';
 
 function App(): JSX.Element {
     return (
-        <div className='Site'>
+        <div className='site'>
             <BrowserRouter>
-                <div className='ContentWrap'>
+                <div className='content-wrap'>
                     <Switch>
                         <Route component={HomeScreen} exact path={HOME} />
                         <Redirect exact from='/' to={HOME} />
