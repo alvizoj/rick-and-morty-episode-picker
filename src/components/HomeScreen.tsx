@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import episodesService from '../services/episodesService';
+import AppDescription from './AppDescription';
 import AppTitle from './AppTitle';
 
 export default function HomeScreen(): JSX.Element {
@@ -9,5 +9,10 @@ export default function HomeScreen(): JSX.Element {
         document.title = 'Rick And Morty Blog'; //Page title
     });
 
-    return <AppTitle />;
+    return (
+        <div>
+            <AppTitle />
+            <AppDescription />
+        </div>
+    );
 }
