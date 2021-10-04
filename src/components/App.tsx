@@ -11,7 +11,7 @@ function App(): JSX.Element {
                 <div className='content-wrap'>
                     <Switch>
                         <Route component={HomeScreen} exact path={HOME} />
-                        <Redirect exact from='/' to={HOME} />
+                        <Redirect exact from='*' to={HOME} />
                     </Switch>
                 </div>
             </BrowserRouter>
