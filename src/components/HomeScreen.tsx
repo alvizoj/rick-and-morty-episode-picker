@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AppDescription from './AppDescription';
 import AppTitle from './AppTitle';
+import SeasonSelector from './SeasonSelector';
 
 export default function HomeScreen(): JSX.Element {
     //const { loading, error, episodes } = episodesService.useEpisodes();
@@ -13,6 +14,7 @@ export default function HomeScreen(): JSX.Element {
         <div>
             <AppTitle />
             <AppDescription />
+            <SeasonSelector onSeasonChanged={setActiveSeason} />
         </div>
     );
 }
