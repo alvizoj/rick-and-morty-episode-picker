@@ -21,7 +21,6 @@ export default function EpisodeScreen() {
     const [episodeData, setData] = useState<IEpisode | null>(null);
     const [errorMessage, setErrorMessage] = useState('');
     useEffect(() => {
-        console.log('FETCHING SINGLE EPISODE');
         episodesService
             .getEpisode(parseInt(season), parseInt(episode))
             .then(setData)

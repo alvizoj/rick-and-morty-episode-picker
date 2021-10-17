@@ -27,8 +27,6 @@ class EpisodeService {
     }
 
     public async getEpisode(season: number, episode: number): Promise<IEpisode> {
-        console.log('Fecthing EPISODE data');
-
         const response = await fetch(EPISODE_API(season, episode));
         if (!response.ok) {
             throw new Error(`Server responded with an error code: ${response.status}`);
