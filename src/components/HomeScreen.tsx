@@ -13,7 +13,6 @@ export default function HomeScreen(): JSX.Element {
 
     return (
         <div>
-            <AppTitle />
             <AppDescription />
             <SeasonSelector onSeasonChanged={setActiveSeason} />
             <EpisodesGrid activeSeason={activeSeason} />
