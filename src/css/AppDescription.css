@@ -1,7 +1,12 @@
 .app-description {
     background: gray;
-    width: 50%;
+    width: 90%;
     margin: 10px auto auto auto;
     border-radius: 5px;
     padding: 15px 0px;
+}
+
+@media only screen and (min-width: 600) {
+    .app-description {
+    }
 }
