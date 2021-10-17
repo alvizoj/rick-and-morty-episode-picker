@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { EPISODES_API } from '../constants/ApiPaths';
+import { EPISODES_API, EPISODE_API } from '../constants/ApiPaths';
 import { DEV_URL, PORT } from '../constants/development';
+import { EPISODE } from '../constants/RouterPaths';
 import Subscription from './Subscription';
 
 interface IEpisode {
@@ -25,14 +26,22 @@ class EpisodeService {
         this.fetchEpisodes();
     }
 
-    private async fetchEpisodes() {
-        console.log('Fetching Episodes data');
+    public async getEpisode(season: number, episode: number): Promise<IEpisode> {
+        console.log('Fecthing EPISODE data');
 
-        const fullURL: string = DEV_URL + PORT + EPISODES_API;
-        console.log('URL: ' + fullURL);
+        const response = await fetch(EPISODE_API(season, episode));
+        if (!response.ok) {
+            throw new Error(`Server responded with an error code: ${response.status}`);
+        }
 
+        const data = await response.json();
+        console.log('Fetched Episode');
+        return data;
+    }
+
+    private async fetchEpisodes(): Promise<void> {
         try {
-            const response = await fetch(fullURL);
+            const response = await fetch(EPISODES_API);
             if (!response.ok) {
                 throw new Error(`Server responded with an error code: ${response.status}`);
             }
