@@ -18,6 +18,7 @@ export default class Subscription<T> {
 
     public update(changes: T): void {
         this._lastValue = changes;
-        this.subscribers.forEach(subscriber => subscriber(changes));
+        // Clone subscribers array in case unsubscribe is called in the middle of the update cycle
+        [...this.subscribers].forEach(subscriber => subscriber(changes));
     }
 }
