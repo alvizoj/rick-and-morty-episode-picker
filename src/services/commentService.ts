@@ -17,7 +17,7 @@ export default async function sendCommentPostRequest(props: IComment): Promise<v
 
     const response = await fetch(COMMENT_API, requestOptions);
     if (!response.ok) {
-        throw new Error(`Server responded with an error code: ${response.status}`);
+        throw new Error(`Server error ${response.status}: ${response.statusText}`);
     }
 
     const responseMessage = await response.text();
