@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { EPISODES_API, EPISODE_API } from '../constants/ApiPaths';
-import { DEV_URL, PORT } from '../constants/development';
-import { EPISODE } from '../constants/RouterPaths';
 import Subscription from './Subscription';
 
 interface IEpisode {

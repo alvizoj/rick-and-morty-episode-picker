@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/App.css';
-import { BrowserRouter, Route, Switch, Redirect, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import HomeScreen from './HomeScreen';
 import { HOME } from '../constants/RouterPaths';
 import AppTitle from './AppTitle';

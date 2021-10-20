@@ -6,7 +6,7 @@ interface IEpisodeGridProps {
     activeSeason: number;
 }
 
-export default function EpisodeGrid(props: IEpisodeGridProps) {
+export default function EpisodeGrid(props: IEpisodeGridProps): JSX.Element {
     const { loading, error, episodes } = episodesService.useEpisodes();
 
     return (

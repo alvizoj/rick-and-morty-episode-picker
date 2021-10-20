@@ -1,4 +1,4 @@
-export function parseParams(params?: Record<string, string | number>) {
+export function parseParams(params?: Record<string, string | number>): string {
     let uri = '';
     if (params) {
         for (const key in params) {

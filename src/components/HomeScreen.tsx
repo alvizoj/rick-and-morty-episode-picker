@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import IComment from '../model/IComment';
 import sendCommentPostRequest from '../services/commentService';
 import AppDescription from './AppDescription';
-import AppTitle from './AppTitle';
 import EpisodesGrid from './EpisodesGrid';
 import SeasonSelector from './SeasonSelector';
 
