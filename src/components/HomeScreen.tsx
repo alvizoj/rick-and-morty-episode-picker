@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import IComment from '../model/IComment';
-import postComment from '../services/commentService';
+import sendCommentPostRequest from '../services/commentService';
 import AppDescription from './AppDescription';
 import AppTitle from './AppTitle';
 import EpisodesGrid from './EpisodesGrid';
@@ -21,7 +21,7 @@ export default function HomeScreen(): JSX.Element {
     };
 
     function sendComment(): void {
-        postComment(dummyComment);
+        sendCommentPostRequest(dummyComment);
     }
 
     return (
